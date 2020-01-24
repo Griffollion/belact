@@ -10,12 +10,25 @@ $(document).ready(function() {
     screen3 = ".bellact__screen-3",
     screen4 = ".bellact__screen-4",
     screen5 = ".bellact__screen-5",
-    eraseContainer = ".erase-container";
+    eraseContainer = ".erase-container",
+    zzz = null;
+    count = 0;
 
   function showFinal() {
-    $(eraseContainer).addClass("hide");
-    lastScreenEnable = true;
-    console.log("Erase finished");
+    count++;
+    console.log(zzz);
+    $(zzz).fadeOut(1000);
+    showCanvas('.bellact__screen-2 .ers');
+    showCanvas('.bellact__screen-3 .ers');
+    showCanvas('.bellact__screen-4 .ers');
+
+    if(count  >= 3 ) {
+      lastScreenEnable = true;
+      $(screen5+' .bellact__screen-5-img-1').addClass('visible');
+      $(screen5+' .bellact__screen-5-img-2').addClass('visible');
+      $(screen5+' .bellact__screen-5-cont').addClass('visible');
+      console.log("Erase finished");
+    }
   }
 
   function showCanvas(id) {
@@ -26,33 +39,40 @@ $(document).ready(function() {
     });
   }
 
-  function screenInit(screenForHide, screenForShow, canvasScreen) {
+  function screenInit(screenForHide, screenForShow) {
     shakeEnable = false;
     $(screenForHide).addClass("hide");
-    $(screenForShow).addClass("visible");
-    showCanvas(canvasScreen);
+    $(screenForShow).addClass("up");
+    $(screen2).addClass("visible");
+    $(screen3).addClass("visible");
+    $(screen4).addClass("visible");
+    showCanvas(screenForShow +' .ers');
     $(screen5).addClass("visible");
+
+    console.log(screenForShow +' .ers');
+
+    zzz = screenForShow;
   }
 
   $(document)
-    .on("click", showScreen2, function() {
+    .on("mousedown", showScreen2, function() {
       screenInit(screen1, screen2, eraseScreen2);
       console.log("screen 2 showed");
     })
-    .on("click", showScreen3, function() {
+    .on("mousedown", showScreen3, function() {
       screenInit(screen1, screen3, eraseScreen3);
       console.log("screen 3 showed");
     })
-    .on("click", showScreen4, function() {
+    .on("mousedown", showScreen4, function() {
       screenInit(screen1, screen4, eraseScreen4);
       console.log("screen 4 showed");
     })
 
-    .on("mousedown", "canvas", function() {
+    .on("mousedown", zzz+" canvas", function() {
       $(".bellact__finger").hide();
     });
 
-  // --------------
+  // ---------------------------------
 
   function removeCl(el, classN, time) {
     setTimeout(function() {

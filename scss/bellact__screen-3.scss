@@ -1,11 +1,15 @@
 .bellact__screen-3 {
     display: none;
     position: absolute;
-    z-index: 4;
+    z-index: 8;
     left: 0;
     top: 0;
 }
 
 .bellact__screen-3.visible {
     display: block;
+}
+
+.bellact__screen-3.visible.up {
+    z-index: 10;
 }

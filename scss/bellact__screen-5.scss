@@ -15,6 +15,8 @@
 .bellact__screen-5-img-1 {
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+
 }
 
 .bellact__screen-5-img-1 img {
@@ -24,6 +26,7 @@
 
 .bellact__screen-5-img-2 {
     position: relative;
+    margin-top: 10px;
 }
 
 .bellact__screen-5-img-2 img {
@@ -65,7 +68,7 @@
     flex-direction: column;
     justify-content: center;
     z-index: 3;
-    top: 295px;
+    top: 288px;
 }
 
 .bellact__screen-5-img-3 {
@@ -73,13 +76,13 @@
 }
 
 .bellact__screen-5-img-4 {
-    left: 106px;
-    top: 308px;
+    left: 101px;
+    top: 306px;
 }
 
 .bellact__screen-5-img-5 {
     right: 0px;
-    top: 299px;
+    top: 292px;
 }
 
 .bellact__screen-5-img-3 img,
@@ -110,4 +113,51 @@
     left: -10px;
     top: -2px;
     width: 58px;
+}
+
+.bellact__screen-5-img-1 img:nth-child(1),
+.bellact__screen-5-img-2 img:nth-child(1),
+.bellact__screen-5-img-2 img:nth-child(2),
+.bellact__screen-5-img-2 img:nth-child(3),
+.bellact__screen-5-img-2 img:nth-child(4),
+.bellact__screen-5-cont {
+    opacity: 0;
+}
+
+.bellact__screen-5-img-1.visible img:nth-child(1) {
+    animation: show-img 0.8s both;
+    animation-delay: 0.5s;
+}
+
+.bellact__screen-5-img-2.visible img:nth-child(1) {
+    animation: show-img 0.8s both;
+    animation-delay: 0.5s;
+}
+
+.bellact__screen-5-img-2.visible img:nth-child(2) {
+    animation: show-img 1.2s both;
+    animation-delay: 0.7s;
+}
+.bellact__screen-5-img-2.visible img:nth-child(3) {
+    animation: show-img 1.2s both;
+    animation-delay: 1.2s;
+}
+.bellact__screen-5-img-2.visible img:nth-child(4) {
+    animation: show-img 1.2s both;
+    animation-delay: 1.8s;
+}
+
+.bellact__screen-5-cont.visible {
+    animation: show-img 1.2s both;
+    animation-delay: 1.8s;
+}
+
+@keyframes show-img {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
