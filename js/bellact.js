@@ -16,7 +16,6 @@ $(document).ready(function() {
 
   function showFinal() {
     count++;
-    console.log(zzz);
     $(zzz).fadeOut(1000);
     showCanvas('.bellact__screen-2 .ers');
     showCanvas('.bellact__screen-3 .ers');
@@ -49,8 +48,6 @@ $(document).ready(function() {
     showCanvas(screenForShow +' .ers');
     $(screen5).addClass("visible");
 
-    console.log(screenForShow +' .ers');
-
     zzz = screenForShow;
   }
 
@@ -68,9 +65,25 @@ $(document).ready(function() {
       console.log("screen 4 showed");
     })
 
-    .on("mousedown", zzz+" canvas", function() {
+    .on("touchstart", zzz+" canvas", function() {
       $(".bellact__finger").hide();
-    });
+    })
+    .on("touchstart", showScreen2, function() {
+      screenInit(screen1, screen2, eraseScreen2);
+      console.log("screen 2 showed");
+    })
+    .on("touchstart", showScreen3, function() {
+      screenInit(screen1, screen3, eraseScreen3);
+      console.log("screen 3 showed");
+    })
+    .on("touchstart", showScreen4, function() {
+      screenInit(screen1, screen4, eraseScreen4);
+      console.log("screen 4 showed");
+    })
+
+    .on("touchstart", zzz+" canvas", function() {
+      $(".bellact__finger").hide();
+    })
 
   // ---------------------------------
 
